@@ -1,6 +1,11 @@
-div p{
-    color: burlywood;
-    &:hover{
-        color: aqua;
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    gap:2rem;
+    p{
+        width: 650px;
+        text-align: justify;
     }
 }
