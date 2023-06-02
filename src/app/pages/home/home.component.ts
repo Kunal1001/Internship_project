@@ -32,5 +32,14 @@ export class HomeComponent {
       id:5,
     },
   ]
+  public constructor(){
+    this.f1()
+  }
+  public f1(){
+    alert("f1")
+  }
+  public f2(){
+    alert("f2")
+  }
 
 }
