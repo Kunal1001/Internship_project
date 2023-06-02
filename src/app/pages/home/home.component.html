@@ -14,6 +14,8 @@
 </div>
 <div>{{data}}</div>
 <p class="{{con?color:'text-secondary'}}"> hi !</p>
-<div *ngFor="let i of pd"><span>{{i.name}}</span> <span>{{i.id}}</span></div>
+<div *ngFor="let i of pd"><span>{{i.name+" "}}</span> <span>{{i.id}}</span></div>
+<div *ngIf="con">Conyes</div>
+<div *ngIf="!con">Connot</div>
 </body>
 </html>
