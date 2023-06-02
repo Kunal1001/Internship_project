@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  public data="hello yo!"; 
+  public color = "text-primary"
+  public con= false;
+
 }
