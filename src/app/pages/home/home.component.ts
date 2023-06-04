@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-home',
@@ -16,41 +17,11 @@ export class HomeComponent {
 
   }
 
-  public products = [
-    {
-      id:1,
-      name:'jacket',
-      price: '₹120000',
-      description:'A beautiful Jacket in leather, by BuyIt.com. This premium jacket is not for soft hearted.',
-      url:'../../../assets/images/home/placeimg_640_480_any.jpg',
-    },
-    {
-      id:2,
-      name:'jacket',
-      price: '₹1200000',
-      description:'A beautiful Jacket in leather, by BuyIt.com. This premium jacket is not for soft hearted.',
-      url:'../../../assets/images/home/placeimg_640_480_any.jpg',
-    },
-    {
-      id:3,
-      name:'jacket',
-      price: '₹1200001',
-      description:'A beautiful Jacket in leather, by BuyIt.com. This premium jacket is not for soft hearted.',
-      url:'../../../assets/images/home/placeimg_640_480_any.jpg',
-    },
-    {
-      id:4,
-      name:'jacket',
-      price: '₹1200002',
-      description:'A beautiful Jacket in leather, by BuyIt.com. This premium jacket is not for soft hearted.',
-      url:'../../../assets/images/home/placeimg_640_480_any.jpg',
-    },
-    {
-      id:5,
-      name:'jacket',
-      price: '₹1200003',
-      description:'A beautiful Jacket in leather, by BuyIt.com. This premium jacket is not for soft hearted.',
-      url:'../../../assets/images/home/placeimg_640_480_any.jpg',
-    },
-  ]
+  public products:any;
+  constructor( public apiservice:ApiService){
+    this.apiservice.getProducts().subscribe((productResponse)=>{
+      this.products = productResponse.data;
+      console.log(productResponse);
+    })
+  }
 }
