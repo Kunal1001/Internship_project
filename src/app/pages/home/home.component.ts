@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -8,20 +9,22 @@ import { ApiService } from 'src/app/api.service';
 })
 export class HomeComponent {
 
-  public productDetail:any;
+  public data:any
+  public productDetail
 
-  public getProductDetail(product:any){
-
-    console.log(product);
-    this.productDetail= product;
-
+  constructor(public apiService:ApiService, public router:Router){
+    this.getData().then((products)=>{
+      console.log(products);
+    }) 
   }
-
-  public products:any;
-  constructor( public apiservice:ApiService){
-    this.apiservice.getProducts().subscribe((productResponse)=>{
-      this.products = productResponse.data;
-      console.log(productResponse);
+  public async getData(){
+    this.data = await this.apiService.getAllData()
+    return this.data
+  }
+  public async getProductDetail(pid){
+    this.apiService.getProduct(pid).then((product)=>{
+      this.productDetail = product
+      console.log(this.productDetail)
     })
   }
 }

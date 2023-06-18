@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-firebase-a49df": {
+      "hosting": {
+        "internproject": [
+          "angular-firebase-a49df"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-firebase-a49df"
+  }
+}
